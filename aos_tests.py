@@ -8,6 +8,7 @@ class AosAppPositiveTestCases(unittest.TestCase):
     @staticmethod
     def test_create_new_user():
         methods.setUp()
+        methods.checkDisplayedItems()
         methods.create_new_user()
         methods.log_out()
         methods.log_in()

@@ -16,10 +16,12 @@ first_name = fake.first_name()
 last_name = fake.last_name()
 phone = fake.phone_number()
 country = fake.current_country()
-city = fake.city()
-address = fake.address().replace("\n"," ")
+city = fake.city()[:10]
+address = fake.address().replace("\n"," ")[:20]
 province = fake.province()
 postalcode = fake.postcode()
+sentence = fake.sentence()[:100]
+
 
 #------------------ %&%-------------------------------
 print(new_username, new_password, new_email)
