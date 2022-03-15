@@ -38,6 +38,8 @@ def setUp():
     print('---------------*%*----------------')
 
     print('1-Check that SPEAKERS, TABLETS, HEADPHONES, LAPTOPS, MICE texts are displayed')
+
+
 def checkDisplayedItems():
     list = ['speakersTxt', 'laptopsTxt', 'miceTxt', 'headphonesTxt', 'tabletsTxt']
     time.sleep(2)
@@ -104,9 +106,7 @@ def checkDisplayedItems():
     driver.find_element(By.XPATH , '//a[contains(.," CONTINUE SHOPPING ")]').click()
     time.sleep(2)
     print('CONTACT US FORM WORKS PROPERLY!')
-
     print('---------------*%*----------------')
-
 
     # 5. Check bottom Social Media links are displayed and clickable.
     print('5. Check bottom Social Media links are displayed and clickable.')
@@ -177,6 +177,43 @@ def create_new_user():
     # logger('created')
 
 
+def checkoutShoppingCart():
+    driver.find_element(By.ID, 'speakersTxt').click()
+    driver.find_element(By.ID, '20').click()
+    driver.find_element(By.NAME, 'save_to_cart').click()
+    driver.find_element(By.ID, 'checkOutPopUp').click()
+    driver.find_element(By.ID, 'next_btn').click()
+    driver.find_element(By.NAME, 'safepay_username').send_keys(locators.safepay_username)
+    time.sleep(2)
+    driver.find_element(By.NAME, 'safepay_password').send_keys(locators.safepay_password)
+    time.sleep(2)
+    driver.find_element(By.ID, 'pay_now_btn_SAFEPAY').click()
+    time.sleep(2)
+    # This line-code give all the order informations:
+    # oreders = driver.find_element(By.ID, 'orderPaymentSuccess').text
+    # print(f'The details of order is as follow:"{oreders}"')
+
+    print('--------------------~*~--------------------')
+    print('SHIPPING DETAILS:')
+
+    trakingNumber = driver.find_element(By.ID, 'trackingNumberLabel').text
+    orderNumber = driver.find_element(By.ID, 'orderNumberLabel').text
+    print(f' The traking_umber is found to be: "{trakingNumber}" and order-number is found to be: "{orderNumber}"')
+    shipName = driver.find_element(By.XPATH, '//*[@id="orderPaymentSuccess"]/div/div[1]/div/div[1]/label').text
+    print(f'SHIPING TO :"{shipName}"')
+    addresse = driver.find_element(By.XPATH, '//*[@id="orderPaymentSuccess"]/div/div[1]/div/div[2]/label[1]').text
+    print(f'ADDRESSE  :"{addresse}"')
+    phone = driver.find_element(By.XPATH, '//*[@id="orderPaymentSuccess"]/div/div[1]/div/div[3]/label').text
+    print(f'PHONE NUMBER  :"{phone}"')
+    dateorder = driver.find_element(By.XPATH, '//*[@id="orderPaymentSuccess"]/div/div[2]/div[2]/label/a').text
+    print(f'ORDER DATE :"{dateorder}"')
+    subtotall = driver.find_element(By.XPATH, '//*[@id="orderPaymentSuccess"]/div/div[3]/div[1]/label/a').text
+    print(f'SUBTOTL :"{subtotall}"')
+    total = driver.find_element(By.XPATH, '//*[@id="orderPaymentSuccess"]/div/div[3]/div[3]/label/a').text
+    print(f'TOTAL :"{total}"')
+    print('--------------------~*~--------------------')
+
+
 # Logout
 def log_out():
     driver.find_element(By.ID, 'menuUserLink').click()
@@ -229,6 +266,7 @@ def logger(action):
 # setUp()
 # checkDisplayedItems()
 # create_new_user()
+# checkoutShoppingCart()
 # log_out()
 # log_in()
 # logger('created')

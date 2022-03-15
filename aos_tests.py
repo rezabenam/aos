@@ -10,6 +10,7 @@ class AosAppPositiveTestCases(unittest.TestCase):
         methods.setUp()
         methods.checkDisplayedItems()
         methods.create_new_user()
+        methods.checkoutShoppingCart()
         methods.log_out()
         methods.log_in()
         methods.logger('created')

@@ -8,7 +8,7 @@ aos_home_page_title = ' Advantage Shopping'
 
 
 # -------------------- data section ---------------------------------
-new_username = 'Re'+fake.last_name()
+new_username = fake.last_name()
 new_password = fake.password()
 new_email = fake.email()
 print(new_username, new_password,new_email)
@@ -21,6 +21,9 @@ address = fake.address().replace("\n"," ")[:20]
 province = fake.province()
 postalcode = fake.postcode()
 sentence = fake.sentence()[:100]
+
+safepay_username = 'reza1'
+safepay_password =  'Password1'
 
 
 #------------------ %&%-------------------------------
