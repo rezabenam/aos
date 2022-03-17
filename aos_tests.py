@@ -3,7 +3,7 @@ import aos_locators as locators
 import aos_methods as methods
 
 
-class AosAppPositiveTestCases(unittest.TestCase):
+class MoodleAppPositiveTestCases(unittest.TestCase):
 
     @staticmethod
     def test_create_new_user():

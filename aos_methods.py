@@ -1,12 +1,12 @@
 import sys
-from selenium import webdriver # import selenium to the file
+from selenium import webdriver  # import selenium to the file
 import aos_locators as locators
 from selenium.webdriver.chrome.service import Service
 import time
 from time import sleep
 import datetime
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select # <-- add this import for drop down lists
+from selenium.webdriver.support.ui import Select  # <-- add this import for drop down lists
 from selenium.webdriver.common.keys import Keys
 
 
@@ -86,7 +86,7 @@ def checkDisplayedItems():
     print('MAIL LOGO WAS DISPLAYED---')
     print('---------------*%*----------------')
 
-    #Check CONTACT US form is working properly
+    # Check CONTACT US form is working properly
     print('4-Check CONTACT US form is working properly')
     driver.find_element(By.LINK_TEXT, 'CONTACT US').click()
     time.sleep(2)
